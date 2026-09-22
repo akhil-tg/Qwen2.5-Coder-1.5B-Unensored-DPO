@@ -12,7 +12,7 @@ Usage:
 import argparse
 import os
 
-from dotenv import load_dotenv
+from env_util import load_dotenv
 from llama_cpp import Llama
 
 REPO_ID = "mradermacher/Qwen2.5-Coder-1.5B-Unsensored-DPO-i1-GGUF"

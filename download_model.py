@@ -8,7 +8,7 @@ and only used if you have one set.
 """
 import os
 
-from dotenv import load_dotenv
+from env_util import load_dotenv
 from huggingface_hub import hf_hub_download
 
 REPO_ID = "mradermacher/Qwen2.5-Coder-1.5B-Unsensored-DPO-i1-GGUF"
