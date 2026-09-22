@@ -1,41 +1,35 @@
 """
-Download the gated model timhoek/Qwen2.5-Coder-1.5B-Unensored-DPO into ./models.
+Download the public GGUF model
+  mradermacher/Qwen2.5-Coder-1.5B-Unsensored-DPO-i1-GGUF
+into ./models.
 
-Requires:
-  - A Hugging Face access token (READ) with access granted to the model
-  - The token provided as:
-      an environment variable  -> HF_TOKEN
-      or a .env file           -> HF_TOKEN=...
+The model is public (no approval needed). A HF_TOKEN is optional
+and only used if you have one set.
 """
 import os
 
 from dotenv import load_dotenv
-from huggingface_hub import snapshot_download
+from huggingface_hub import hf_hub_download
 
-MODEL_ID = "timhoek/Qwen2.5-Coder-1.5B-Unensored-DPO"
+REPO_ID = "mradermacher/Qwen2.5-Coder-1.5B-Unsensored-DPO-i1-GGUF"
+FILENAME = "Qwen2.5-Coder-1.5B-Unsensored-DPO.i1-Q4_K_M.gguf"
+
+MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
 
 
 def main() -> None:
     load_dotenv()
-    token = os.getenv("HF_TOKEN", "").strip()
-    if not token:
-        raise SystemExit(
-            "No HF_TOKEN found.\n"
-            "Set it as an environment variable or create a .env file:\n"
-            "  HF_TOKEN=hf_xxxx\n"
-            "\nGet a token at https://huggingface.co/settings/tokens"
-        )
+    token = os.getenv("HF_TOKEN") or None
 
-    local_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
-    os.makedirs(local_dir, exist_ok=True)
-
-    print(f"Downloading {MODEL_ID} -> {local_dir}")
-    snapshot_download(
-        repo_id=MODEL_ID,
+    os.makedirs(MODEL_DIR, exist_ok=True)
+    print(f"Downloading {REPO_ID} ({FILENAME}) -> {MODEL_DIR}")
+    path = hf_hub_download(
+        repo_id=REPO_ID,
+        filename=FILENAME,
         token=token,
-        local_dir=local_dir,
+        local_dir=MODEL_DIR,
     )
-    print("Download complete.")
+    print(f"Download complete: {path}")
 
 
 if __name__ == "__main__":
