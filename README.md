@@ -29,11 +29,21 @@ python chat.py
 Commands: type `/quit` to exit, `/reset` to clear conversation history.
 Optional: `python chat.py --max-new-tokens 1024` for longer responses.
 
+### (Better) Web page instead of the terminal
+Same model, but a real chat page in your browser:
+```bash
+python web.py
+```
+GitHub Codespaces shows an **"Open in Browser"** notification for port
+`8000` — click it. (Or use the **Ports** tab → open port 8000.)
+Type in the box; Enter sends, Shift+Enter makes a new line.
+
 ## Files
 | File | Purpose |
 |------|---------|
 | `download_model.py` | Downloads the Q4_K_M GGUF into `./models` |
 | `chat.py` | Interactive chat CLI (llama.cpp, runs on CPU) |
+| `web.py` | Browser chat page (port 8000, Codespaces auto-forwards it) |
 | `.devcontainer.json` | Codespaces container config |
 | `requirements.txt` | `llama-cpp-python` + download helpers |
 | `.env.example` | Optional HF token template (not required) |
