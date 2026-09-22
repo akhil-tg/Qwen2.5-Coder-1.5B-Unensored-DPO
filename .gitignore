@@ -1,0 +1,25 @@
+# Hugging Face cache / downloaded models
+models/
+.cache/
+.hf/
+
+# Environment / secrets
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Python cache from huggingface
+.huggingface/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+!.vscode/

@@ -1,0 +1,7 @@
+torch>=2.2.0
+transformers>=4.44.0
+accelerate>=0.33.0
+huggingface_hub>=0.24.0
+tiktoken>=0.7.0
+sentencepiece>=0.2.0
+python-dotenv>=1.0.0
