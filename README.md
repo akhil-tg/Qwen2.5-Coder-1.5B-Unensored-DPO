@@ -14,7 +14,7 @@ needed — the model is public.)
 ### 1. Start GitHub Codespaces
 1. Open this repository on github.com.
 2. Click the green **Code** button → **Codespaces** → **Create codespace on main**.
-3. Wait ~2 minutes for the container to build (it auto-installs `llama-cpp-python`).
+3. Wait ~2 minutes for the container to build (installs prebuilt `llama-cpp-python`).
 
 ### 2. Download the model (Q4_K_M, ~1.1 GB)
 ```bash
