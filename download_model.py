@@ -34,7 +34,6 @@ def main() -> None:
         repo_id=MODEL_ID,
         token=token,
         local_dir=local_dir,
-        local_dir_use_symlinks=False,
     )
     print("Download complete.")
 
